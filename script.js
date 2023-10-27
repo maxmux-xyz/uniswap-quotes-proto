@@ -11,7 +11,7 @@ const provider = new ethers.providers.JsonRpcProvider(ALCHEMY_URL)
 const tokenIn = WETH_ADDRESS
 const tokenOut = USDC_ADDRESS
 const fee = '500'
-const amount = '3536000'
+const amount = '3536000' // <-- replace here with whatever amount. This is USDC (10**6)
 const sqrtPriceLimitX96 = '0'
 
 const quoter2 = new ethers.Contract(
@@ -33,6 +33,6 @@ const main = async () => {
     params
   )
   console.log("Amount of ETH necessary for next step:")
-  console.log('output: ', output.amountIn.toString())
+  console.log('output: ', output.amountIn.toString()) // <-- this is the amount of ETH necessary for the swap (10**18)
 }
 main()
